@@ -12,7 +12,7 @@ with open("Alturas.csv", "r", encoding="utf-8") as archivo:
         datos_corregidos = datos.strip().split(",")
 
         alturas = datos_corregidos[1]
-        genero = datos_corregidos[2].replace('"', '')
+        genero = datos_corregidos[2].replace('"', "")
 
         if genero == "Hombre":
             alturas_hombres.append(float(alturas))
@@ -47,6 +47,10 @@ plt.subplot(2, 1, 2)
 plt.gcf().set_facecolor("#DCDCDC")
 plt.title("Promedio de Alturas")
 plt.ylabel("Altura en centimetros")
-plt.bar(["Hombre", "Mujer"], [promedio_hombres, promedio_mujeres], color=["#4e79a7", "#f28e2b"])
+plt.bar(
+    ["Hombre", "Mujer"],
+    [promedio_hombres, promedio_mujeres],
+    color=["#4e79a7", "#f28e2b"],
+)
 plt.ylim(150, 180)
 plt.show()
